@@ -32,7 +32,7 @@ export async function loginAction(data: {
 
   if (!comparePassword(data.password, user.password)) {
     return {
-      errors: '请输入正确的用户或密码2',
+      errors: '请输入正确的用户或密码',
     };
   }
 
