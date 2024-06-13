@@ -1,5 +1,11 @@
 # next-antd-admin
 
+## 0.0.5
+
+### Patch Changes
+
+- remove html element no root
+
 ## 0.0.4
 
 ### Patch Changes
