@@ -23,6 +23,7 @@ export const findByUserName = async (name: string) => {
         id: true,
         name: true,
         password: true,
+        status: true,
       },
     });
 

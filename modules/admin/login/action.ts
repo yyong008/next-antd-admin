@@ -19,13 +19,12 @@ export async function loginAction(data: {
   }
 
   const user: any = await findByUserName(data.username);
-
   if (!user) {
     return {
       errors: '请输入正确的用户或密码',
     };
   }
-  if (user!.status === 1) {
+  if (user.status === 0) {
     return {
       errors: '用户被禁用',
     };
