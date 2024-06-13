@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { verifySession, verifySessionGithub } from '@/libs/dal';
+
+import { verifySession } from '@/libs/dal';
 
 export async function middleware(request: NextRequest) {
   const data = await verifySession();
@@ -7,7 +8,6 @@ export async function middleware(request: NextRequest) {
   if (data.isAuth) {
     return NextResponse.next();
   }
-
   return NextResponse.redirect(new URL(`/zh-CN/admin/login`, request.nextUrl));
 }
 

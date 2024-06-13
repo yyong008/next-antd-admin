@@ -6,6 +6,7 @@ import { LoginSchema } from '@/schemas/login.schema';
 import { comparePassword } from '@/utils/bcrypt.util';
 import { createSession } from '@/libs/session';
 import { getLoginInfo } from '@/utils/ip.util';
+import { redirect } from 'next/navigation';
 
 export async function loginAction(data: {
   username: string;
@@ -38,19 +39,17 @@ export async function loginAction(data: {
 
   try {
     const loginInfo = await getLoginInfo();
-    const logininLog = await createLoginLog({
+    await createLoginLog({
       ...loginInfo,
       name: user.name,
       userId: user!.id,
     });
     await createSession(user.id);
-
-    return {
-      message: 'ok',
-    };
   } catch (error) {
     return {
       errors: error,
     };
   }
+
+  redirect('/zh-CN/admin/dashboard');
 }

@@ -1,32 +1,23 @@
-'use client';
+import * as services from './service';
 
-import { AdminLayoutUI, getLayoutData } from './components';
-import { ReactNode, memo, useEffect, useState } from 'react';
+import { AdminLayoutUI } from './components';
+import { ReactNode } from 'react';
+import { cache } from 'react';
+import { getUserId } from '@/libs/dal';
 
-function AdminLayout({ children }: { children: ReactNode }) {
-  const [data, setData] = useState<any>({
-    loading: true,
-    menu: [],
-    userInfo: {},
-  });
-  const getData = async () => {
-    const menuData = await getLayoutData();
-    setData(() => ({
-      loading: false,
-      menu: menuData.data.menu,
-      userInfo: menuData.data.userInfo,
-    }));
+const getLayoutData = cache(async (userId: number) => {
+  return {
+    menu: await services.getFlatMenuByUserId(userId, t => t),
+    userInfo: await services.getUserInfoById(userId),
   };
+});
 
-  useEffect(() => {
-    getData();
-  }, []);
-
+export const Route = async ({ children }: { children: ReactNode }) => {
+  const userId = await getUserId();
+  const _data = await getLayoutData(userId as number);
   return (
-    <AdminLayoutUI menu={data.menu} userInfo={data.userInfo}>
+    <AdminLayoutUI menu={_data.menu} userInfo={_data.userInfo}>
       {children}
     </AdminLayoutUI>
   );
-}
-
-export const Route = memo(AdminLayout);
+};

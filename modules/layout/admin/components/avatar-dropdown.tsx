@@ -38,16 +38,7 @@ export const AvatarDropDown: React.FC<AvatarDropDownProps> = ({ dom }) => {
             icon: <LogoutOutlined />,
             label: <>{t('logout')}</>,
             async onClick(e) {
-              const result = await logoutAction();
-
-              if (result.code === 0) {
-                message.success(result?.message as string);
-                router.replace(`/${lang}/admin/login`);
-                return;
-              } else {
-                message.error(result?.message as string);
-                return;
-              }
+              await logoutAction();
             },
           },
         ],
