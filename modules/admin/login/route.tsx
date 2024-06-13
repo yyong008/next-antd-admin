@@ -1,7 +1,7 @@
 'use client';
 
 import { AccountLogin, ActionIcons, MobileLogin } from '@/components/login';
-import { Button, ConfigProvider, Spin, Tabs, message } from 'antd';
+import { App, Button, ConfigProvider, Spin, Tabs } from 'antd';
 import {
   LoginFormPage,
   ProConfigProvider,
@@ -23,6 +23,7 @@ import { getDictionary } from '@/app/utils/locales';
 import { loginAction } from './action';
 
 export function Route() {
+  const { message } = App.useApp();
   const [loading, setLoading] = useState(true);
   const [type, setType] = useState<string>('account');
   const { lang = 'zh-CN' } = useParams();

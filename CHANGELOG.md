@@ -1,5 +1,11 @@
 # next-antd-admin
 
+## 0.0.7
+
+### Patch Changes
+
+- use antd message context with app
+
 ## 0.0.6
 
 ### Patch Changes

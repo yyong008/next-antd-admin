@@ -1,5 +1,7 @@
 import './globals.css';
 
+import { App, ConfigProvider } from 'antd';
+
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
@@ -19,7 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AntdRegistry>{children}</AntdRegistry>
+        <ConfigProvider>
+          <App>
+            <AntdRegistry>{children}</AntdRegistry>
+          </App>
+        </ConfigProvider>
       </body>
     </html>
   );

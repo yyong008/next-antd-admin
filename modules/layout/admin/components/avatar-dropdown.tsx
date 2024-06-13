@@ -1,8 +1,8 @@
 'use client';
 
-import { Dropdown, Form, message } from 'antd';
+import { App, Dropdown, Form, message } from 'antd';
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
-import { redirect, useParams, useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 
 import React from 'react';
 import { logoutAction } from '../actions/logout-action';
@@ -13,6 +13,7 @@ type AvatarDropDownProps = {
 };
 
 export const AvatarDropDown: React.FC<AvatarDropDownProps> = ({ dom }) => {
+  const { message } = App.useApp();
   const router = useRouter();
   const { t } = useLocals();
   const { lang } = useParams();
