@@ -42,7 +42,7 @@ export function AdminLayoutUI({ menu, userInfo, children }: any) {
         }}
         route={route}
         token={token}
-        loading={menu && menu.length <= 0}
+        loading={userInfo && userInfo.username <= 0}
         {...value.theme}
         logo={prolayoutConfig.logo}
         menu={prolayoutConfig.menu}
