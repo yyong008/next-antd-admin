@@ -7,9 +7,16 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Remix dev",
+      "name": "Next dev",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["run", "dev"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Next Start",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["run", "start"]
     }
   ]
 }

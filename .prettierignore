@@ -1,0 +1,8 @@
+node_modules/
+dist/
+build/
+.next
+.vscode
+.changeset
+.husky
+public
