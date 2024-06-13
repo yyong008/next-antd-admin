@@ -8,12 +8,12 @@ import {
   createTokens,
 } from './';
 import { Footer, MenuItemLink, MenuItemOutLink } from '@/components/common';
-import { ProLayout, WaterMark } from '@ant-design/pro-components';
 import { useContext, useMemo, useState } from 'react';
 import { useParams, usePathname } from 'next/navigation';
 
 import { SettingContext } from '@/context';
 import { createProLayoutRoute } from '@/app/utils';
+import dynamic from 'next/dynamic';
 import { prolayoutConfig } from '@/config/prolayout';
 import { useLocals } from '@/hooks';
 
@@ -22,6 +22,16 @@ const resetStyles = {
   margin: '0px',
   height: '100vh',
 };
+
+const ProLayout = dynamic(
+  () => import('@ant-design/pro-components').then(com => com.ProLayout),
+  { ssr: false },
+);
+
+const WaterMark = dynamic(
+  () => import('@ant-design/pro-components').then(com => com.WaterMark),
+  { ssr: false },
+);
 
 export function AdminLayoutUI({ menu, userInfo, children }: any) {
   const { lang } = useParams();
