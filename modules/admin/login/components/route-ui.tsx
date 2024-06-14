@@ -40,7 +40,7 @@ export const RouteUI = ({ dict }: any) => {
       <div style={{ backgroundColor: token.colorBgContainer, width: '100vw' }}>
         <LoginForm
           logo="/next.svg"
-          title="Next Antd Admin"
+          title="登录"
           subTitle="A admin with next.js and antd"
           actions={<LoginFormAction />}
           onFinish={onFinish}

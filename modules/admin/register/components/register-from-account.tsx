@@ -29,7 +29,7 @@ const Tip = ({ status }: any) => {
 const passworErrorTipStr =
   'Password should contain numbers, letters and special characters, at least 8 characters long.';
 
-export const LoginFormAccount = () => {
+export const RegisterFormAccount = () => {
   return (
     <>
       <ProFormText
@@ -54,11 +54,30 @@ export const LoginFormAccount = () => {
           strengthText: passworErrorTipStr,
           statusRender: value => {
             const status = getStatus(value);
+            return <Tip status={status} />;
+          },
+        }}
+        placeholder={'密码'}
+        rules={[
+          {
+            required: true,
+            message: '请输入密码！',
+          },
+        ]}
+      />
+      <ProFormText.Password
+        name="passwordRe"
+        fieldProps={{
+          size: 'large',
+          prefix: <LockOutlined className={'prefixIcon'} />,
+          strengthText: passworErrorTipStr,
+          statusRender: value => {
+            const status = getStatus(value);
 
             return <Tip status={status} />;
           },
         }}
-        placeholder={'密码: 123456'}
+        placeholder={'密码'}
         rules={[
           {
             required: true,

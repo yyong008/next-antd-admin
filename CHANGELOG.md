@@ -1,5 +1,11 @@
 # next-antd-admin
 
+## 0.0.11
+
+### Patch Changes
+
+- register with session
+
 ## 0.0.10
 
 ### Patch Changes
