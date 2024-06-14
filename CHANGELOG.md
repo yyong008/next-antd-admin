@@ -1,5 +1,12 @@
 # next-antd-admin
 
+## 0.0.9
+
+### Patch Changes
+
+- client blog and news
+- 5409a66: fix login and logout
+
 ## 0.0.8
 
 ### Patch Changes

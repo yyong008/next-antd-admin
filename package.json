@@ -1,6 +1,6 @@
 {
   "name": "next-antd-admin",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Next Antd Admin",
   "keywords": [
     "next",
@@ -84,6 +84,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.27.5",
     "@types/crypto-js": "^4.2.2",
+    "@types/dompurify": "^3.0.5",
     "@types/node": "^20",
     "@types/nprogress": "^0.2.3",
     "@types/react": "^18",
