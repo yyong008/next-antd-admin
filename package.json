@@ -2,7 +2,6 @@
   "name": "next-antd-admin",
   "version": "0.0.10",
   "description": "Next Antd Admin",
-  "type": "modules",
   "keywords": [
     "next",
     "antd",
