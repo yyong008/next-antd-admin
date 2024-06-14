@@ -2,6 +2,7 @@ import 'server-only';
 
 import { SignJWT, jwtVerify } from 'jose';
 
+import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 
 const secretKey = process.env.SESSION_SECRET;
@@ -22,13 +23,23 @@ export async function decrypt(session: string | undefined = '') {
     });
     return payload;
   } catch (error) {
-    console.error('Failed to verify session');
+    console.error('Failed to verify session', error);
+    return null;
   }
 }
 
-export async function createSession(userId: string) {
+export async function createSession(userId?: number, captchaText?: string) {
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-  const session = await encrypt({ userId, expiresAt });
+  const payload: any = {
+    expiresAt,
+  };
+  if (userId) {
+    payload.userId = userId;
+  }
+  if (captchaText) {
+    payload.captchaText = captchaText;
+  }
+  const session = await encrypt(payload);
 
   cookies().set('session', session, {
     httpOnly: true,
@@ -39,22 +50,51 @@ export async function createSession(userId: string) {
   });
 }
 
-export async function updateSession() {
+export async function getSessionPayload() {
   const session = cookies().get('session')?.value;
-  const payload = await decrypt(session);
+  if (!session) {
+    return null;
+  }
+  let payload = await decrypt(session);
+  return payload;
+}
+
+export async function updateSession(
+  request: NextRequest,
+  userId?: number,
+  captchaText?: string,
+) {
+  let session = request.cookies.get('session')?.value;
+  let payload: any = {};
 
   if (!session || !payload) {
     return null;
   }
 
+  if (!payload) {
+    payload = {};
+  }
+
+  if (payload && userId) {
+    payload.userId = userId;
+  }
+
+  if (payload && captchaText) {
+    payload.captchaText = captchaText;
+  }
+
+  const newSession = await encrypt(payload);
+
   const expires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-  cookies().set('session', session, {
+  cookies().set('session', newSession, {
     httpOnly: true,
     secure: true,
     expires: expires,
     sameSite: 'lax',
     path: '/',
   });
+
+  return newSession;
 }
 
 export async function deleteSession() {
