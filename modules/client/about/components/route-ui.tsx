@@ -15,10 +15,10 @@ export function RouteUI({ publicRuntimeConfig }: any) {
     <div className="flex flex-col py-[140px] w-[60vw] min-h-[80vh]">
       <ProConfigProvider>
         <Space direction="vertical">
-          <ProjectAbout publicRuntimeConfig={publicRuntimeConfig} />
-          <ProjectInfo publicRuntimeConfig={publicRuntimeConfig} />
-          <ProjectProductionDep publicRuntimeConfig={publicRuntimeConfig} />
-          <ProjectDevelopmentDep publicRuntimeConfig={publicRuntimeConfig} />
+          <ProjectAbout />
+          <ProjectInfo />
+          <ProjectProductionDep />
+          <ProjectDevelopmentDep />
         </Space>
       </ProConfigProvider>
     </div>

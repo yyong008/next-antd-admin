@@ -1,10 +1,12 @@
+'use client';
+
 import { Descriptions, Tag } from 'antd';
 
 import { BlankLink } from './blank-link';
 import { ProCard } from '@ant-design/pro-components';
 
-export const ProjectInfo = ({ publicRuntimeConfig }: any) => {
-  const { pkg, lastBuildTime } = publicRuntimeConfig.__APP_INFO__;
+export const ProjectInfo = () => {
+  const { pkg, lastBuildTime } = __APP_INFO__;
   return (
     <ProCard
       style={{

@@ -1,4 +1,4 @@
-import { RouteUI } from './components/ui';
+import { RouteUI } from './components';
 import { getDictionary } from '@/app/utils/locales';
 
 export default async function Route({

@@ -4,8 +4,8 @@ import { BlankLink } from './blank-link';
 import { Descriptions } from 'antd';
 import { ProCard } from '@ant-design/pro-components';
 
-export const ProjectDevelopmentDep = ({ publicRuntimeConfig }: any) => {
-  const { pkg } = publicRuntimeConfig.__APP_INFO__;
+export const ProjectDevelopmentDep = () => {
+  const { pkg } = __APP_INFO__;
   return (
     <ProCard
       style={{

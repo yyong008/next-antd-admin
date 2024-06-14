@@ -95,6 +95,9 @@ importers:
       next-auth:
         specifier: ^4.24.7
         version: 4.24.7(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nodemailer@6.9.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next-nprogress-bar:
+        specifier: ^2.3.12
+        version: 2.3.12
       nodemailer:
         specifier: ^6.9.13
         version: 6.9.13
@@ -3410,6 +3413,9 @@ packages:
     peerDependenciesMeta:
       nodemailer:
         optional: true
+
+  next-nprogress-bar@2.3.12:
+    resolution: {integrity: sha512-BCsmNmssPY4QfYKux7cGYm/JmsM/n9TGMJJDyYPt7ckWyK8l43hMgi7g9d7u/IxCaEAx3pbzfg7Ity0zdlDnGA==}
 
   next@14.2.4:
     resolution: {integrity: sha512-R8/V7vugY+822rsQGQCjoLhMuC9oFj9SOi4Cl4b2wjDrseD0LRZ10W7R6Czo4w9ZznVSshKjuIomsRjvm9EKJQ==}
@@ -9220,6 +9226,10 @@ snapshots:
       uuid: 8.3.2
     optionalDependencies:
       nodemailer: 6.9.13
+
+  next-nprogress-bar@2.3.12:
+    dependencies:
+      nprogress: 0.2.0
 
   next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

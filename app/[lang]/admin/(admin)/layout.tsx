@@ -6,7 +6,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex justify-center relative bg-indigo-100 w-[100vw] h-[100vh]">
+    <div className="flex justify-center relativew-[100vw] h-[100vh]">
       <Route>{children}</Route>
     </div>
   );

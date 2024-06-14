@@ -3,8 +3,8 @@
 import { Descriptions } from 'antd';
 import { ProCard } from '@ant-design/pro-components';
 
-export const ProjectAbout = ({ publicRuntimeConfig }: any) => {
-  const { pkg } = publicRuntimeConfig.__APP_INFO__;
+export const ProjectAbout = () => {
+  const { pkg } = __APP_INFO__;
   const allDeps = { ...pkg.dependencies, ...pkg.devDependencies };
 
   const getMajorVersion = (depName: DepType) => {
@@ -14,7 +14,7 @@ export const ProjectAbout = ({ publicRuntimeConfig }: any) => {
   type DepType = keyof typeof allDeps;
 
   const description = `
-    ${pkg.name}是基于 @remix-run/react${getMajorVersion('@remix-run/react')}.x、
+    ${pkg.name}是基于 next${getMajorVersion('next')}.x、
     Vite${getMajorVersion('vite')}.x、
     Antd${getMajorVersion('antd')}.x 、
     TailwindCSS${getMajorVersion('tailwindcss')}.x 、
