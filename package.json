@@ -32,7 +32,8 @@
     "changeset": "changeset",
     "version": "changeset version",
     "prepare": "husky",
-    "check": "tsc"
+    "check": "tsc",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.20.0",
