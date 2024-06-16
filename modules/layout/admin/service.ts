@@ -1,4 +1,4 @@
-import prisma from '@/utils/prisma';
+import prisma from '@/libs/prisma';
 
 // 构建菜单树的函数
 function buildMenuTree(
