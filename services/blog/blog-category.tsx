@@ -103,7 +103,7 @@ export const getBlogCategoryByUserId$: IBlogCategory['getBlogCategoryByUserId$']
     return of({ userId }).pipe(
       switchMap(where => prisma.blogCategory.findMany({ where })),
       catchError(e => {
-        console.log(e);
+        console.error(e);
         return of(e);
       }),
     );

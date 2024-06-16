@@ -11,7 +11,7 @@ export function useKeyPress(resetTime = 100) {
   useEffect(() => {
     const keyDownObservable = fromEvent(document, 'keydown');
 
-    const subscription = keyDownObservable.subscribe(event => {
+    const subscription = keyDownObservable.subscribe((event: any) => {
       if (event.key) {
         setKey(event.key);
       }

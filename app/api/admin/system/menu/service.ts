@@ -153,7 +153,7 @@ export async function getFlatMenuByUserId(
           return m;
         })
         .filter(item => item.type !== 3) ?? [];
-    return [...new Set(flatRoleMenuData)];
+    return [...(new Set(flatRoleMenuData) as any)];
   } catch (error) {
     console.error(error);
     return null;

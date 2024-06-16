@@ -39,7 +39,7 @@ export const createNews = async (data: any) => {
       },
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 };
@@ -87,7 +87,7 @@ export const updateNews = async (data: any) => {
       },
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 };
@@ -146,7 +146,7 @@ export const getNewsListByCategoryId = async (categoryId: number) => {
       },
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 };
@@ -181,7 +181,7 @@ export const getNewsById = async (id: number) => {
       },
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 };
@@ -210,7 +210,7 @@ export const getNews = async () => {
   try {
     return await prisma.news.findMany();
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 };

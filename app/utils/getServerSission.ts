@@ -1,4 +1,4 @@
-import { authOptions } from '../api/auth/[...nextauth]/route';
+import { authOptions } from '@/libs/authOptions';
 import { getServerSession } from 'next-auth/next';
 
 export async function getCurrentUser() {

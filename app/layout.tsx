@@ -6,6 +6,7 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 import { ProgressBar } from '@/components';
+import StoreProvider from './store-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,12 +23,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ConfigProvider>
-          <App>
-            <AntdRegistry>{children}</AntdRegistry>
-          </App>
-        </ConfigProvider>
-        <ProgressBar />
+        <StoreProvider>
+          <ConfigProvider>
+            <App>
+              <AntdRegistry>{children}</AntdRegistry>
+            </App>
+          </ConfigProvider>
+          <ProgressBar />
+        </StoreProvider>
       </body>
     </html>
   );

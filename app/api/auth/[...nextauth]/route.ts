@@ -1,24 +1,6 @@
-import NextAuth, { NextAuthOptions } from 'next-auth';
+import { authOptions } from '@/libs/authOptions';
+import NextAuth from 'next-auth/next';
 
-import GithubProvider from 'next-auth/providers/github';
+const handler = NextAuth(authOptions);
 
-export const authOptions: NextAuthOptions = {
-  session: {
-    strategy: 'jwt',
-  },
-  // debug: process.env.NODE_ENV === "development",
-  providers: [
-    GithubProvider({
-      clientId: `${process.env.GITHUB_ID}`,
-      clientSecret: `${process.env.GITHUB_SECRET}`,
-      httpOptions: {
-        timeout: 50000,
-      },
-    }),
-  ],
-};
-
-const handlers = NextAuth(authOptions);
-
-export const GET = handlers;
-export const POST = handlers;
+export { handler as GET, handler as POST };

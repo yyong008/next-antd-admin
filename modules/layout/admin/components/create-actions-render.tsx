@@ -50,7 +50,7 @@ export const createActionRenderWrap =
   (props: any) => {
     const goGithub = () => {
       let aTag: any = document.createElement('a');
-      aTag.setAttribute('href', 'https://github.com/yyong008/remix-antd-admin');
+      aTag.setAttribute('href', 'https://github.com/yyong008/next-antd-admin');
       aTag.setAttribute('target', '_blank');
       aTag.click();
       aTag = null;

@@ -6,7 +6,7 @@ export function ProgressBar() {
   return (
     <AppProgressBar
       height="4px"
-      color="#fffd00"
+      color="#1677ff"
       options={{ showSpinner: true }}
       shallowRouting
     />

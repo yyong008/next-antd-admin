@@ -1,7 +1,6 @@
 export { AntdIcon } from './antd-icon';
 export { ButtonLink } from './button-link';
 export { CacheType } from './cache-type';
-export { ClientOnly } from './client-only';
 export { DeleteIt } from './delete-it';
 export { Footer } from './footer';
 export { FormatTime } from './format-time';

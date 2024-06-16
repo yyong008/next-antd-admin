@@ -1,7 +1,7 @@
 import { cache } from 'react';
 import * as services from './service';
 
-export async function GET({}) {
+export async function GET() {
   const data = JSON.stringify({
     data: await getData(),
   });

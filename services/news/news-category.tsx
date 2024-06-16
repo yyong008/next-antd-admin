@@ -28,7 +28,7 @@ export const createNewsCategory = async (data: any) => {
       },
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 };
@@ -98,7 +98,7 @@ export const getFindNewsCategory = async () => {
   try {
     return await prisma.newsCategory.findMany();
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 };
@@ -124,7 +124,7 @@ export const getNewsCategoryListByUserId = async (userId: number) => {
       },
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 };

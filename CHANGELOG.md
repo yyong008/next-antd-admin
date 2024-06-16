@@ -1,5 +1,11 @@
 # next-antd-admin
 
+## 0.0.12
+
+### Patch Changes
+
+- routes content
+
 ## 0.0.11
 
 ### Patch Changes

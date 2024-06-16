@@ -8,13 +8,15 @@ import {
   createTokens,
 } from './';
 import { Footer, MenuItemLink, MenuItemOutLink } from '@/components/common';
-import { useContext, useMemo, useState } from 'react';
+import { memo, useContext, useEffect, useMemo, useState } from 'react';
 import { useParams, usePathname } from 'next/navigation';
 
 import { SettingContext } from '@/context';
 import { createProLayoutRoute } from '@/app/utils';
 import dynamic from 'next/dynamic';
 import { prolayoutConfig } from '@/config/prolayout';
+import { setUserInfo } from '@/libs/features/user-info';
+import { useAppDispatch } from '@/hooks/use-redux';
 import { useLocals } from '@/hooks';
 
 const resetStyles = {
@@ -33,7 +35,9 @@ const WaterMark = dynamic(
   { ssr: false },
 );
 
-export function AdminLayoutUI({ menu, userInfo, children }: any) {
+export function LayoutUI({ menu, userInfo, children }: any) {
+  const dispatch = useAppDispatch();
+  dispatch(setUserInfo(userInfo));
   const { lang } = useParams();
   const _pathname = usePathname();
   const value = useContext(SettingContext);
@@ -44,11 +48,12 @@ export function AdminLayoutUI({ menu, userInfo, children }: any) {
     () => createProLayoutRoute(lang as string, menu, t),
     [lang, menu, t],
   );
+
   return (
-    <WaterMark content="remix antd admin">
+    <WaterMark content="Next Antd Admin" style={{ width: '100%' }}>
       <ProLayout
         location={{
-          pathname,
+          pathname: pathname || _pathname,
         }}
         route={route}
         token={token}
@@ -94,3 +99,5 @@ export function AdminLayoutUI({ menu, userInfo, children }: any) {
     </WaterMark>
   );
 }
+
+export const AdminLayoutUI = memo(LayoutUI);

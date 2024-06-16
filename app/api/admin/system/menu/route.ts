@@ -3,7 +3,7 @@ import * as services from './service';
 import { cache } from 'react';
 import { getUserId } from '@/libs/dal';
 
-export async function GET({}) {
+export async function GET() {
   const userId = await getUserId();
   if (!userId) {
     return new Response('');

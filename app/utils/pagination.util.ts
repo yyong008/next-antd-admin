@@ -34,6 +34,7 @@ export function getPaginationByRequest$(
   let page = Number(searchParams.get('page') ?? 1);
   let pageSize = Number(searchParams.get('pageSize') ?? 10);
   let name = searchParams.get('name') ?? '';
+  let role = searchParams.get('role') ?? '';
 
-  return of({ page, pageSize, name });
+  return of({ page, pageSize, name, role });
 }
