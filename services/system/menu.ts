@@ -1,16 +1,4 @@
-import type { Prisma } from '@prisma/client';
 import prisma from '@/libs/prisma';
-
-export interface IMenu {
-  getMenu(t: () => void, lang: string): any;
-  getMenuRaw(t: () => void, lang: string): any;
-  getTypeNotPermMenu(t: () => void, lang: string): any;
-  getFlatMenuByUserId(userId: number, t: (v: string) => string): any;
-  getMenuByUserIdNoPerm(t: () => void, lang: string, userId: number): any;
-  createMenu(data: Prisma.MenuUncheckedCreateInput): any;
-  updateMenu(data: Prisma.MenuUncheckedUpdateInput): any;
-  deleteMenu(ids: number[]): any;
-}
 
 // 构建菜单树的函数
 function buildMenuTree(
@@ -184,8 +172,8 @@ export async function getMenuByUserIdNoPerm(
 }
 
 // 创建菜单
-export const createMenu = async (data: Prisma.MenuUncheckedCreateInput) => {
-  let menuData: Prisma.MenuUncheckedCreateInput;
+export const createMenu = async (data: any) => {
+  let menuData;
   if (data.type === 1) {
     menuData = {
       type: data.type,
@@ -240,7 +228,7 @@ export const createMenu = async (data: Prisma.MenuUncheckedCreateInput) => {
   }
 };
 
-export const updateMenu = async (data: Prisma.MenuUncheckedUpdateInput) => {
+export const updateMenu = async (data: any) => {
   try {
     const menu = await prisma.menu.update({
       where: {

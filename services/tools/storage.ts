@@ -1,28 +1,16 @@
 import type { Observable } from 'rxjs';
-import type { Prisma } from '@prisma/client';
+
 import { SortOrder } from '@/types';
 import type { TPage } from '@/types';
 import { from } from 'rxjs';
 import prisma from '@/libs/prisma';
 
-export interface IStorage {
-  createStorage(data: Prisma.StorageCreateInput): any;
-  getStorageList(data: TPage): any;
-}
-
-export interface IStorage {
-  createStorage$(data: Prisma.StorageCreateInput): Observable<any>;
-  deleteByIds$(ids: number[]): Observable<any>;
-  storageCount$(): Observable<any>;
-  getStorageList$(data: TPage): Observable<any>;
-}
-
 /**
  * create storage info
- * @param data  Prisma.StorageCreateInput
+ * @param data
  * @returns
  */
-export const createStorage = async (data: Prisma.StorageCreateInput) => {
+export const createStorage = async (data: any) => {
   try {
     const res = await prisma.storage.create({
       data,
@@ -36,10 +24,10 @@ export const createStorage = async (data: Prisma.StorageCreateInput) => {
 
 /**
  * create storage info
- * @param data  Prisma.StorageCreateInput
+ * @param data
  * @returns
  */
-export const createStorage$ = (data: Prisma.StorageCreateInput) => {
+export const createStorage$ = (data: any) => {
   return from(
     prisma.storage.create({
       data,
@@ -49,7 +37,7 @@ export const createStorage$ = (data: Prisma.StorageCreateInput) => {
 
 /**
  * delete storage
- * @param ids  Prisma.StorageCreateInput
+ * @param ids
  * @returns
  */
 export const deleteStorageByIds$ = (ids: number[]) => {

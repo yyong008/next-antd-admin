@@ -1,4 +1,3 @@
-import type { Prisma } from '@prisma/client';
 import { from, type Observable } from 'rxjs';
 import { SortOrder, type TPage } from '@/types';
 import prisma from '@/libs/prisma';
@@ -23,12 +22,10 @@ const findChangeLogByPage$ = (data: TPage): Observable<any[]> => {
 
 /**
  * 创建 feedback
- * @param data {Prisma.ChangeLogCreateInput}
+ * @param data
  * @returns
  */
-const createChangeLog$ = (
-  data: Prisma.ChangeLogCreateInput,
-): Observable<any> => {
+const createChangeLog$ = (data: any): Observable<any> => {
   data.publish_time = new Date(data.publish_time);
   return from(
     prisma.changeLog.create({
@@ -39,12 +36,10 @@ const createChangeLog$ = (
 
 /**
  * 更新反馈
- * @param data {Prisma.ChangeLogUpdateInput & { id: number}}
+ * @param data
  * @returns
  */
-const updateChangeLogById$ = (
-  data: Prisma.ChangeLogUpdateInput & { id: number },
-): Observable<any> => {
+const updateChangeLogById$ = (data: any & { id: number }): Observable<any> => {
   return from(
     prisma.changeLog.update({
       where: {

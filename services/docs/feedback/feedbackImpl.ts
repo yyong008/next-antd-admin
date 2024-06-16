@@ -1,4 +1,3 @@
-import type { Prisma } from '@prisma/client';
 import { from, type Observable } from 'rxjs';
 import { SortOrder, type TPage } from '@/types';
 
@@ -24,10 +23,10 @@ const findFeedbackByPage$ = (data: TPage): Observable<any[]> => {
 
 /**
  * 创建 feedback
- * @param data {Prisma.FeedBackCreateInput}
+ * @param data
  * @returns
  */
-const createFeedback$ = (data: Prisma.FeedBackCreateInput): Observable<any> => {
+const createFeedback$ = (data: any): Observable<any> => {
   return from(
     prisma.feedBack.create({
       data: {
@@ -41,12 +40,10 @@ const createFeedback$ = (data: Prisma.FeedBackCreateInput): Observable<any> => {
 
 /**
  * 更新反馈
- * @param data {Prisma.FeedBackUpdateInput & { id: number}}
+ * @param data
  * @returns
  */
-const updateFeedBackById$ = (
-  data: Prisma.FeedBackUpdateInput & { id: number },
-): Observable<any> => {
+const updateFeedBackById$ = (data: any & { id: number }): Observable<any> => {
   return from(
     prisma.feedBack.update({
       where: {

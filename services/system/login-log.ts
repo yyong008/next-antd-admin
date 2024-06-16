@@ -1,9 +1,8 @@
-import type { Prisma } from '@prisma/client';
 import { SortOrder } from '@/types';
 import type { TPage } from '@/types';
 import prisma from '@/libs/prisma';
 
-export const createLoginLog = async (data: Prisma.LoginlogCreateInput) => {
+export const createLoginLog = async (data: any) => {
   try {
     const res = await prisma.loginlog.create({
       data,
