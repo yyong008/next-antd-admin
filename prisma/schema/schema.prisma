@@ -1,7 +1,8 @@
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["prismaSchemaFolder"]
-  output   = "./generated/client"
+  // output = "../../node_modules/.prisma/client"
+  output   = "./generated/client" // // https://github.com/vercel/next.js/issues/40760
 }
 
 datasource db {

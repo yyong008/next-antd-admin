@@ -24,6 +24,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  outputFileTracing: false, // https://github.com/vercel/next.js/issues/40760
 };
 
 export default nextConfig;
