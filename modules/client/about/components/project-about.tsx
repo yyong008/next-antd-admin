@@ -15,7 +15,6 @@ export const ProjectAbout = () => {
 
   const description = `
     ${pkg.name}是基于 next${getMajorVersion('next')}.x、
-    Vite${getMajorVersion('vite')}.x、
     Antd${getMajorVersion('antd')}.x 、
     TailwindCSS${getMajorVersion('tailwindcss')}.x 、
     prisma${getMajorVersion('prisma')}.x 、
