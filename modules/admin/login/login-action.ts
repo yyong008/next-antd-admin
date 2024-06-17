@@ -6,7 +6,6 @@ import { LoginSchema } from '@/schemas/login.schema';
 import { comparePassword } from '@/utils/bcrypt.util';
 import { createSession } from '@/libs/session';
 import { getLoginInfo } from '@/utils/ip.util';
-import { redirect } from 'next/navigation';
 
 export async function loginAction(data: {
   username: string;
@@ -50,6 +49,4 @@ export async function loginAction(data: {
       errors: error,
     };
   }
-
-  redirect('/zh-CN/admin/dashboard');
 }

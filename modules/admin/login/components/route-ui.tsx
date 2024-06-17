@@ -10,6 +10,7 @@ import {
   OtherLoginItems,
 } from '.';
 import { startTransition, useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
 
 import { genHashedPassword } from '@/app/utils';
 import { loginAction } from '../login-action';
@@ -17,10 +18,12 @@ import { loginAction } from '../login-action';
 type LoginType = 'phone' | 'account';
 
 export const RouteUI = ({ dict }: any) => {
+  const { lang } = useParams();
   const { token } = theme.useToken();
   const { message } = App.useApp();
   const [loginType, setLoginType] = useState<LoginType>('account');
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const onFinish = async (values: any) => {
     setLoading(true);
     startTransition(async () => {
@@ -32,6 +35,9 @@ export const RouteUI = ({ dict }: any) => {
       if (result && result.errors) {
         message.error(result.errors.toString());
         return;
+      } else {
+        message.success('Success, Welcome!');
+        return router.push(`/${lang}/admin/dashboard`);
       }
     });
   };
