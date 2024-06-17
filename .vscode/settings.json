@@ -1,2 +1,24 @@
 {
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "package.json": "package.json, pnpm-lock.yaml, .npmrc, vitest.config.ts, .prettierrc, .prettierignore, .editorconfig,.eslintrc.json,.gitignore, tailwind.config.ts, postcss.config.mjs,tsconfig.json, tsconfig.tsbuildinfo",
+    "README.md": "README.md, README_CN.md, todo.md,CHANGELOG.md, LICENSE",
+    ".env": ".env, .env.tpl",
+    "next.config.mjs": "next.config.mjs, middleware.ts, next-env.d.ts",
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.changeset": true,
+    "**/.husky": true,
+    "**/.vscode": true,
+    "**/.next": true,
+    "**/.vercel": true,
+    "**/node_modules": true,
+  }
 }
