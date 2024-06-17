@@ -8,14 +8,15 @@ import {
 } from '@ant-design/icons';
 
 import { Dropdown } from 'antd';
+import { defaultLang } from '@/config';
 import { useRouter } from 'next/navigation';
 
 const ActionRenderImpl = ({ value }: any) => {
   const router = useRouter();
   const choiceLang = (lang: string) => {
     let p = location.pathname.split('/');
-    p[1] = lang || 'en-US';
-    value.setLang(lang || 'en-US');
+    p[1] = lang || defaultLang;
+    value?.setLang(lang || defaultLang);
     router.replace(p.join('/').trim());
   };
   return (

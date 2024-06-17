@@ -1,4 +1,4 @@
-import { Route } from '@/modules/layout/admin';
+import { AdminLayout } from '@/modules/layout/admin';
 
 export default function Layout({
   children,
@@ -7,7 +7,7 @@ export default function Layout({
 }>) {
   return (
     <div className="flex justify-center relativew-[100vw] h-[100vh]">
-      <Route>{children}</Route>
+      <AdminLayout>{children}</AdminLayout>
     </div>
   );
 }

@@ -1,18 +1,18 @@
-import * as services from './service';
+import { ReactNode, cache } from 'react';
 
-import { AdminLayoutUI } from './components';
-import { ReactNode } from 'react';
-import { cache } from 'react';
+import { AdminLayoutUI } from './layout-ui';
+import { getFlatMenuByUserId } from '@/services/system/menu';
 import { getUserId } from '@/libs/dal';
+import { getUserInfoById } from '@/services/system/user';
 
 const getLayoutData = cache(async (userId: number) => {
   return {
-    menu: await services.getFlatMenuByUserId(userId, t => t),
-    userInfo: await services.getUserInfoById(userId),
+    menu: await getFlatMenuByUserId(userId, t => t),
+    userInfo: await getUserInfoById(userId),
   };
 });
 
-export const Route = async ({ children }: { children: ReactNode }) => {
+export const AdminLayout = async ({ children }: { children: ReactNode }) => {
   const userId = await getUserId();
   const _data = await getLayoutData(userId as number);
   return (

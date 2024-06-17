@@ -1,6 +1,6 @@
 'use client';
 
-import ClientLayout from '@/modules/layout/client/';
+import { ClientLayout } from '@/modules/layout/client';
 
 export default function Layout({
   children,
